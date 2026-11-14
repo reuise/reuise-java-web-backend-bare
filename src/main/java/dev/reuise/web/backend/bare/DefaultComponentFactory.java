@@ -9,10 +9,13 @@ import dev.reuise.core.badge.CoreBadgeOptions;
 import dev.reuise.core.banner.CoreBannerOptions;
 import dev.reuise.core.basecomponent.CoreBaseComponentPartOptions;
 import dev.reuise.core.bottomappbar.CoreBottomAppBarOptions;
+import dev.reuise.core.button.CoreButtonBarOptions;
 import dev.reuise.core.button.CoreButtonOptions;
 import dev.reuise.core.button.CoreIconButtonOptions;
 import dev.reuise.core.card.CoreCardGridOptions;
 import dev.reuise.core.card.CoreCardOptions;
+import dev.reuise.core.carousel.CoreCarouselCardOptions;
+import dev.reuise.core.carousel.CoreCarouselOptions;
 import dev.reuise.core.chat.CoreChatBoxOptions;
 import dev.reuise.core.checkbox.CoreBasicCheckboxOptions;
 import dev.reuise.core.checkbox.CoreCheckboxOptions;
@@ -135,6 +138,8 @@ import dev.reuise.web.backend.bare.basecomponent.BaseComponentOptions;
 import dev.reuise.web.backend.bare.bottomappbar.BottomAppBar;
 import dev.reuise.web.backend.bare.bottomappbar.BottomAppBarOptions;
 import dev.reuise.web.backend.bare.button.Button;
+import dev.reuise.web.backend.bare.button.ButtonBar;
+import dev.reuise.web.backend.bare.button.ButtonBarOptions;
 import dev.reuise.web.backend.bare.button.ButtonOptions;
 import dev.reuise.web.backend.bare.button.IconButton;
 import dev.reuise.web.backend.bare.button.IconButtonOptions;
@@ -142,6 +147,10 @@ import dev.reuise.web.backend.bare.card.Card;
 import dev.reuise.web.backend.bare.card.CardGrid;
 import dev.reuise.web.backend.bare.card.CardGridOptions;
 import dev.reuise.web.backend.bare.card.CardOptions;
+import dev.reuise.web.backend.bare.carousel.Carousel;
+import dev.reuise.web.backend.bare.carousel.CarouselCard;
+import dev.reuise.web.backend.bare.carousel.CarouselCardOptions;
+import dev.reuise.web.backend.bare.carousel.CarouselOptions;
 import dev.reuise.web.backend.bare.chat.ChatBox;
 import dev.reuise.web.backend.bare.chat.ChatBoxOptions;
 import dev.reuise.web.backend.bare.checkbox.BasicCheckbox;
@@ -349,6 +358,8 @@ import dev.reuise.web.backend.basecomponent.WebBackendBaseComponentOptions;
 import dev.reuise.web.backend.bottomappbar.WebBackendBottomAppBar;
 import dev.reuise.web.backend.bottomappbar.WebBackendBottomAppBarOptions;
 import dev.reuise.web.backend.button.WebBackendButton;
+import dev.reuise.web.backend.button.WebBackendButtonBar;
+import dev.reuise.web.backend.button.WebBackendButtonBarOptions;
 import dev.reuise.web.backend.button.WebBackendButtonOptions;
 import dev.reuise.web.backend.button.WebBackendIconButton;
 import dev.reuise.web.backend.button.WebBackendIconButtonOptions;
@@ -356,6 +367,10 @@ import dev.reuise.web.backend.card.WebBackendCard;
 import dev.reuise.web.backend.card.WebBackendCardGrid;
 import dev.reuise.web.backend.card.WebBackendCardGridOptions;
 import dev.reuise.web.backend.card.WebBackendCardOptions;
+import dev.reuise.web.backend.carousel.WebBackendCarousel;
+import dev.reuise.web.backend.carousel.WebBackendCarouselCard;
+import dev.reuise.web.backend.carousel.WebBackendCarouselCardOptions;
+import dev.reuise.web.backend.carousel.WebBackendCarouselOptions;
 import dev.reuise.web.backend.chat.WebBackendChatBox;
 import dev.reuise.web.backend.chat.WebBackendChatBoxOptions;
 import dev.reuise.web.backend.checkbox.WebBackendBasicCheckbox;
@@ -585,13 +600,163 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendTableHeaderRow createTableHeaderRow(CoreTableHeaderRowOptions options) {
-        return new TableHeaderRow(((TableHeaderRowOptions) (options)));
+    public WebBackendIconLabel createIconLabel(CoreIconLabelOptions options) {
+        return new IconLabel(((IconLabelOptions) (options)));
     }
 
     @Override
-    public WebBackendTableHeaderRowOptions createTableHeaderRowOptions() {
-        return new TableHeaderRowOptions();
+    public WebBackendIconLabelOptions createIconLabelOptions() {
+        return new IconLabelOptions();
+    }
+
+    @Override
+    public WebBackendSelectMenu createSelectMenu(CoreSelectMenuOptions options) {
+        return new SelectMenu(((SelectMenuOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSelectMenuOptions createSelectMenuOptions() {
+        return new SelectMenuOptions();
+    }
+
+    @Override
+    public WebBackendAudioPlayer createAudioPlayer(CoreAudioPlayerOptions options) {
+        return new AudioPlayer(((AudioPlayerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendAudioPlayerOptions createAudioPlayerOptions() {
+        return new AudioPlayerOptions();
+    }
+
+    @Override
+    public WebBackendCurrencySelector createCurrencySelector(CoreCurrencySelectorOptions options) {
+        return new CurrencySelector(((CurrencySelectorOptions) (options)));
+    }
+
+    @Override
+    public WebBackendCurrencySelectorOptions createCurrencySelectorOptions() {
+        return new CurrencySelectorOptions();
+    }
+
+    @Override
+    public WebBackendCheckboxTableCell createCheckboxTableCell(CoreCheckboxTableCellOptions options) {
+        return new CheckboxTableCell(((CheckboxTableCellOptions) (options)));
+    }
+
+    @Override
+    public WebBackendCheckboxTableCellOptions createCheckboxTableCellOptions() {
+        return new CheckboxTableCellOptions();
+    }
+
+    @Override
+    public WebBackendBasicList createBasicList(CoreBasicListOptions options) {
+        return new BasicList(((BasicListOptions) (options)));
+    }
+
+    @Override
+    public WebBackendBasicListOptions createBasicListOptions() {
+        return new BasicListOptions();
+    }
+
+    @Override
+    public WebBackendDocument createDocument(WebDocumentOptions options) {
+        return new Document(((DocumentOptions) (options)));
+    }
+
+    @Override
+    public WebBackendDocumentOptions createDocumentOptions() {
+        return new DocumentOptions();
+    }
+
+    @Override
+    public WebBackendSvgImage createSvgImage(WebSvgImageOptions options) {
+        return new SvgImage(((SvgImageOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSvgImageOptions createSvgImageOptions() {
+        return new SvgImageOptions();
+    }
+
+    @Override
+    public WebBackendSheetLayout createSheetLayout(CoreSheetLayoutOptions options) {
+        return new SheetLayout(((SheetLayoutOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSheetLayoutOptions createSheetLayoutOptions() {
+        return new SheetLayoutOptions();
+    }
+
+    @Override
+    public WebBackendView createView(CoreViewOptions options) {
+        return new View(((ViewOptions) (options)));
+    }
+
+    @Override
+    public WebBackendViewOptions createViewOptions() {
+        return new ViewOptions();
+    }
+
+    @Override
+    public WebBackendScriptComponent createScriptComponent(WebScriptComponentOptions options) {
+        return new ScriptComponent(((ScriptComponentOptions) (options)));
+    }
+
+    @Override
+    public WebBackendScriptComponentOptions createScriptComponentOptions() {
+        return new ScriptComponentOptions();
+    }
+
+    @Override
+    public WebBackendAccordionItem createAccordionItem(CoreAccordionItemOptions options) {
+        return new AccordionItem(((AccordionItemOptions) (options)));
+    }
+
+    @Override
+    public WebBackendAccordionItemOptions createAccordionItemOptions() {
+        return new AccordionItemOptions();
+    }
+
+    @Override
+    public WebBackendFloatingActionButton createFloatingActionButton(CoreFloatingActionButtonOptions options) {
+        return new FloatingActionButton(((FloatingActionButtonOptions) (options)));
+    }
+
+    @Override
+    public WebBackendFloatingActionButtonOptions createFloatingActionButtonOptions() {
+        return new FloatingActionButtonOptions();
+    }
+
+    @Override
+    public WebBackendChip createChip(CoreChipOptions options) {
+        return new Chip(((ChipOptions) (options)));
+    }
+
+    @Override
+    public WebBackendChipOptions createChipOptions() {
+        return new ChipOptions();
+    }
+
+    @Override
+    public WebBackendDocumentBody createDocumentBody(WebDocumentBodyOptions options) {
+        return new DocumentBody(((DocumentBodyOptions) (options)));
+    }
+
+    @Override
+    public WebBackendDocumentBodyOptions createDocumentBodyOptions() {
+        return new DocumentBodyOptions();
+    }
+
+    @Override
+    public WebBackendTopAppBar createTopAppBar(CoreTopAppBarOptions options) {
+        return new TopAppBar(((TopAppBarOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTopAppBarOptions createTopAppBarOptions() {
+        return new TopAppBarOptions();
     }
 
     @Override
@@ -605,6 +770,436 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
+    public WebBackendSheetView createSheetView(CoreSheetViewOptions options) {
+        return new SheetView(((SheetViewOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSheetViewOptions createSheetViewOptions() {
+        return new SheetViewOptions();
+    }
+
+    @Override
+    public WebBackendListView createListView(CoreListViewOptions options) {
+        return new ListView(((ListViewOptions) (options)));
+    }
+
+    @Override
+    public WebBackendListViewOptions createListViewOptions() {
+        return new ListViewOptions();
+    }
+
+    @Override
+    public WebBackendTableColumnGroup createTableColumnGroup(CoreTableColumnGroupOptions options) {
+        return new TableColumnGroup(((TableColumnGroupOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTableColumnGroupOptions createTableColumnGroupOptions() {
+        return new TableColumnGroupOptions();
+    }
+
+    @Override
+    public WebBackendTableHeader createTableHeader(CoreTableHeaderOptions options) {
+        return new TableHeader(((TableHeaderOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTableHeaderOptions createTableHeaderOptions() {
+        return new TableHeaderOptions();
+    }
+
+    @Override
+    public WebBackendChatBox createChatBox(CoreChatBoxOptions options) {
+        return new ChatBox(((ChatBoxOptions) (options)));
+    }
+
+    @Override
+    public WebBackendChatBoxOptions createChatBoxOptions() {
+        return new ChatBoxOptions();
+    }
+
+    @Override
+    public WebBackendButton createButton(CoreButtonOptions options) {
+        return new Button(((ButtonOptions) (options)));
+    }
+
+    @Override
+    public WebBackendButtonOptions createButtonOptions() {
+        return new ButtonOptions();
+    }
+
+    @Override
+    public WebBackendAppLayoutBody createAppLayoutBody(CoreAppLayoutBodyOptions options) {
+        return new AppLayoutBody(((AppLayoutBodyOptions) (options)));
+    }
+
+    @Override
+    public WebBackendAppLayoutBodyOptions createAppLayoutBodyOptions() {
+        return new AppLayoutBodyOptions();
+    }
+
+    @Override
+    public WebBackendParentComponent createParentComponent(CoreParentComponentPartOptions options) {
+        return new ParentComponent(((ParentComponentOptions) (options)));
+    }
+
+    @Override
+    public WebBackendParentComponentOptions createParentComponentOptions() {
+        return new ParentComponentOptions();
+    }
+
+    @Override
+    public WebBackendSlideContainerEdge createSlideContainerEdge(CoreSlideContainerEdgeOptions options) {
+        return new SlideContainerEdge(((SlideContainerEdgeOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSlideContainerEdgeOptions createSlideContainerEdgeOptions() {
+        return new SlideContainerEdgeOptions();
+    }
+
+    @Override
+    public WebBackendCarouselCard createCarouselCard(CoreCarouselCardOptions options) {
+        return new CarouselCard(((CarouselCardOptions) (options)));
+    }
+
+    @Override
+    public WebBackendCarouselCardOptions createCarouselCardOptions() {
+        return new CarouselCardOptions();
+    }
+
+    @Override
+    public WebBackendSkeleton createSkeleton(CoreSkeletonOptions options) {
+        return new Skeleton(((SkeletonOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSkeletonOptions createSkeletonOptions() {
+        return new SkeletonOptions();
+    }
+
+    @Override
+    public WebBackendScrollableContainer createScrollableContainer(CoreScrollableContainerOptions options) {
+        return new ScrollableContainer(((ScrollableContainerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendScrollableContainerOptions createScrollableContainerOptions() {
+        return new ScrollableContainerOptions();
+    }
+
+    @Override
+    public WebBackendFilterChip createFilterChip(CoreFilterChipOptions options) {
+        return new FilterChip(((FilterChipOptions) (options)));
+    }
+
+    @Override
+    public WebBackendFilterChipOptions createFilterChipOptions() {
+        return new FilterChipOptions();
+    }
+
+    @Override
+    public WebBackendTab createTab(CoreTabOptions options) {
+        return new Tab(((TabOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTabOptions createTabOptions() {
+        return new TabOptions();
+    }
+
+    @Override
+    public WebBackendSplitContainerDivider createSplitContainerDivider(CoreSplitContainerDividerOptions options) {
+        return new SplitContainerDivider(((SplitContainerDividerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSplitContainerDividerOptions createSplitContainerDividerOptions() {
+        return new SplitContainerDividerOptions();
+    }
+
+    @Override
+    public WebBackendNavigationLink createNavigationLink(CoreNavigationLinkOptions options) {
+        return new NavigationLink(((NavigationLinkOptions) (options)));
+    }
+
+    @Override
+    public WebBackendNavigationLinkOptions createNavigationLinkOptions() {
+        return new NavigationLinkOptions();
+    }
+
+    @Override
+    public WebBackendTextTrack createTextTrack(CoreTextTrackOptions options) {
+        return new TextTrack(((TextTrackOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTextTrackOptions createTextTrackOptions() {
+        return new TextTrackOptions();
+    }
+
+    @Override
+    public WebBackendMenuButtonItem createMenuButtonItem(CoreMenuButtonItemOptions options) {
+        return new MenuButtonItem(((MenuButtonItemOptions) (options)));
+    }
+
+    @Override
+    public WebBackendMenuButtonItemOptions createMenuButtonItemOptions() {
+        return new MenuButtonItemOptions();
+    }
+
+    @Override
+    public WebBackendParagraph createParagraph(CoreParagraphOptions options) {
+        return new Paragraph(((ParagraphOptions) (options)));
+    }
+
+    @Override
+    public WebBackendParagraphOptions createParagraphOptions() {
+        return new ParagraphOptions();
+    }
+
+    @Override
+    public WebBackendVideoPlayer createVideoPlayer(CoreVideoPlayerOptions options) {
+        return new VideoPlayer(((VideoPlayerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendVideoPlayerOptions createVideoPlayerOptions() {
+        return new VideoPlayerOptions();
+    }
+
+    @Override
+    public WebBackendAccordion createAccordion(CoreAccordionOptions options) {
+        return new Accordion(((AccordionOptions) (options)));
+    }
+
+    @Override
+    public WebBackendAccordionOptions createAccordionOptions() {
+        return new AccordionOptions();
+    }
+
+    @Override
+    public WebBackendMenuItem createMenuItem(CoreMenuItemOptions options) {
+        return new MenuItem(((MenuItemOptions) (options)));
+    }
+
+    @Override
+    public WebBackendMenuItemOptions createMenuItemOptions() {
+        return new MenuItemOptions();
+    }
+
+    @Override
+    public WebBackendRouteLayout createRouteLayout(WebRouteLayoutOptions options) {
+        return new RouteLayout(((RouteLayoutOptions) (options)));
+    }
+
+    @Override
+    public WebBackendRouteLayoutOptions createRouteLayoutOptions() {
+        return new RouteLayoutOptions();
+    }
+
+    @Override
+    public WebBackendSplitContainer createSplitContainer(CoreSplitContainerOptions options) {
+        return new SplitContainer(((SplitContainerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSplitContainerOptions createSplitContainerOptions() {
+        return new SplitContainerOptions();
+    }
+
+    @Override
+    public WebBackendPasswordField createPasswordField(CorePasswordFieldOptions options) {
+        return new PasswordField(((PasswordFieldOptions) (options)));
+    }
+
+    @Override
+    public WebBackendPasswordFieldOptions createPasswordFieldOptions() {
+        return new PasswordFieldOptions();
+    }
+
+    @Override
+    public WebBackendMultiEmailAddressField createMultiEmailAddressField(CoreMultiEmailAddressFieldOptions options) {
+        return new MultiEmailAddressField(((MultiEmailAddressFieldOptions) (options)));
+    }
+
+    @Override
+    public WebBackendMultiEmailAddressFieldOptions createMultiEmailAddressFieldOptions() {
+        return new MultiEmailAddressFieldOptions();
+    }
+
+    @Override
+    public WebBackendMenu createMenu(CoreMenuOptions options) {
+        return new Menu(((MenuOptions) (options)));
+    }
+
+    @Override
+    public WebBackendMenuOptions createMenuOptions() {
+        return new MenuOptions();
+    }
+
+    @Override
+    public WebBackendTableHeaderRow createTableHeaderRow(CoreTableHeaderRowOptions options) {
+        return new TableHeaderRow(((TableHeaderRowOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTableHeaderRowOptions createTableHeaderRowOptions() {
+        return new TableHeaderRowOptions();
+    }
+
+    @Override
+    public WebBackendScrollableContainerEdge createScrollableContainerEdge(CoreScrollableContainerEdgeOptions options) {
+        return new ScrollableContainerEdge(((ScrollableContainerEdgeOptions) (options)));
+    }
+
+    @Override
+    public WebBackendScrollableContainerEdgeOptions createScrollableContainerEdgeOptions() {
+        return new ScrollableContainerEdgeOptions();
+    }
+
+    @Override
+    public WebBackendText createText(CoreTextOptions options) {
+        return new Text(((TextOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTextOptions createTextOptions() {
+        return new TextOptions();
+    }
+
+    @Override
+    public WebBackendSvgShape createSvgShape(WebSvgShapeOptions options) {
+        return new SvgShape(((SvgShapeOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSvgShapeOptions createSvgShapeOptions() {
+        return new SvgShapeOptions();
+    }
+
+    @Override
+    public WebBackendButtonBar createButtonBar(CoreButtonBarOptions options) {
+        return new ButtonBar(((ButtonBarOptions) (options)));
+    }
+
+    @Override
+    public WebBackendButtonBarOptions createButtonBarOptions() {
+        return new ButtonBarOptions();
+    }
+
+    @Override
+    public WebBackendBadge createBadge(CoreBadgeOptions options) {
+        return new Badge(((BadgeOptions) (options)));
+    }
+
+    @Override
+    public WebBackendBadgeOptions createBadgeOptions() {
+        return new BadgeOptions();
+    }
+
+    @Override
+    public WebBackendSplitContainerPanel createSplitContainerPanel(CoreSplitContainerPanelOptions options) {
+        return new SplitContainerPanel(((SplitContainerPanelOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSplitContainerPanelOptions createSplitContainerPanelOptions() {
+        return new SplitContainerPanelOptions();
+    }
+
+    @Override
+    public WebBackendCheckbox createCheckbox(CoreCheckboxOptions options) {
+        return new Checkbox(((CheckboxOptions) (options)));
+    }
+
+    @Override
+    public WebBackendCheckboxOptions createCheckboxOptions() {
+        return new CheckboxOptions();
+    }
+
+    @Override
+    public WebBackendAvatar createAvatar(CoreAvatarOptions options) {
+        return new Avatar(((AvatarOptions) (options)));
+    }
+
+    @Override
+    public WebBackendAvatarOptions createAvatarOptions() {
+        return new AvatarOptions();
+    }
+
+    @Override
+    public WebBackendRegionSelector createRegionSelector(CoreRegionSelectorOptions options) {
+        return new RegionSelector(((RegionSelectorOptions) (options)));
+    }
+
+    @Override
+    public WebBackendRegionSelectorOptions createRegionSelectorOptions() {
+        return new RegionSelectorOptions();
+    }
+
+    @Override
+    public WebBackendTextField createTextField(CoreTextFieldOptions options) {
+        return new TextField(((TextFieldOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTextFieldOptions createTextFieldOptions() {
+        return new TextFieldOptions();
+    }
+
+    @Override
+    public WebBackendHeading createHeading(CoreHeadingOptions options) {
+        return new Heading(((HeadingOptions) (options)));
+    }
+
+    @Override
+    public WebBackendHeadingOptions createHeadingOptions() {
+        return new HeadingOptions();
+    }
+
+    @Override
+    public WebBackendTableFooter createTableFooter(CoreTableFooterOptions options) {
+        return new TableFooter(((TableFooterOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTableFooterOptions createTableFooterOptions() {
+        return new TableFooterOptions();
+    }
+
+    @Override
+    public WebBackendTableColumn createTableColumn(CoreTableColumnOptions options) {
+        return new TableColumn(((TableColumnOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTableColumnOptions createTableColumnOptions() {
+        return new TableColumnOptions();
+    }
+
+    @Override
+    public WebBackendSvg createSvg(WebSvgOptions options) {
+        return new Svg(((SvgOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSvgOptions createSvgOptions() {
+        return new SvgOptions();
+    }
+
+    @Override
+    public WebBackendTabBar createTabBar(CoreTabBarOptions options) {
+        return new TabBar(((TabBarOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTabBarOptions createTabBarOptions() {
+        return new TabBarOptions();
+    }
+
+    @Override
     public WebBackendMessageDialog createMessageDialog(CoreMessageDialogOptions options) {
         return new MessageDialog(((MessageDialogOptions) (options)));
     }
@@ -612,6 +1207,136 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     @Override
     public WebBackendMessageDialogOptions createMessageDialogOptions() {
         return new MessageDialogOptions();
+    }
+
+    @Override
+    public WebBackendNavigationTreeGroup createNavigationTreeGroup(CoreNavigationTreeGroupOptions options) {
+        return new NavigationTreeGroup(((NavigationTreeGroupOptions) (options)));
+    }
+
+    @Override
+    public WebBackendNavigationTreeGroupOptions createNavigationTreeGroupOptions() {
+        return new NavigationTreeGroupOptions();
+    }
+
+    @Override
+    public WebBackendColumnLayout createColumnLayout(CoreColumnLayoutOptions options) {
+        return new ColumnLayout(((ColumnLayoutOptions) (options)));
+    }
+
+    @Override
+    public WebBackendColumnLayoutOptions createColumnLayoutOptions() {
+        return new ColumnLayoutOptions();
+    }
+
+    @Override
+    public WebBackendSearchField createSearchField(CoreSearchFieldOptions options) {
+        return new SearchField(((SearchFieldOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSearchFieldOptions createSearchFieldOptions() {
+        return new SearchFieldOptions();
+    }
+
+    @Override
+    public WebBackendListItem createListItem(CoreListItemOptions options) {
+        return new ListItem(((ListItemOptions) (options)));
+    }
+
+    @Override
+    public WebBackendListItemOptions createListItemOptions() {
+        return new ListItemOptions();
+    }
+
+    @Override
+    public WebBackendInlineText createInlineText(CoreInlineTextOptions options) {
+        return new InlineText(((InlineTextOptions) (options)));
+    }
+
+    @Override
+    public WebBackendInlineTextOptions createInlineTextOptions() {
+        return new InlineTextOptions();
+    }
+
+    @Override
+    public WebBackendMenuDivider createMenuDivider(CoreMenuDividerOptions options) {
+        return new MenuDivider(((MenuDividerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendMenuDividerOptions createMenuDividerOptions() {
+        return new MenuDividerOptions();
+    }
+
+    @Override
+    public WebBackendAppLayout createAppLayout(CoreAppLayoutOptions options) {
+        return new AppLayout(((AppLayoutOptions) (options)));
+    }
+
+    @Override
+    public WebBackendAppLayoutOptions createAppLayoutOptions() {
+        return new AppLayoutOptions();
+    }
+
+    @Override
+    public WebBackendMenuButton createMenuButton(CoreMenuButtonOptions options) {
+        return new MenuButton(((MenuButtonOptions) (options)));
+    }
+
+    @Override
+    public WebBackendMenuButtonOptions createMenuButtonOptions() {
+        return new MenuButtonOptions();
+    }
+
+    @Override
+    public WebBackendBanner createBanner(CoreBannerOptions options) {
+        return new Banner(((BannerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendBannerOptions createBannerOptions() {
+        return new BannerOptions();
+    }
+
+    @Override
+    public WebBackendDivider createDivider(CoreDividerOptions options) {
+        return new Divider(((DividerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendDividerOptions createDividerOptions() {
+        return new DividerOptions();
+    }
+
+    @Override
+    public WebBackendConsentBanner createConsentBanner(CoreConsentBannerOptions options) {
+        return new ConsentBanner(((ConsentBannerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendConsentBannerOptions createConsentBannerOptions() {
+        return new ConsentBannerOptions();
+    }
+
+    @Override
+    public WebBackendCardGrid createCardGrid(CoreCardGridOptions options) {
+        return new CardGrid(((CardGridOptions) (options)));
+    }
+
+    @Override
+    public WebBackendCardGridOptions createCardGridOptions() {
+        return new CardGridOptions();
+    }
+
+    @Override
+    public WebBackendDialog createDialog(CoreDialogOptions options) {
+        return new Dialog(((DialogOptions) (options)));
+    }
+
+    @Override
+    public WebBackendDialogOptions createDialogOptions() {
+        return new DialogOptions();
     }
 
     @Override
@@ -635,133 +1360,133 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendLink createLink(CoreLinkOptions options) {
-        return new Link(((LinkOptions) (options)));
+    public WebBackendCarousel createCarousel(CoreCarouselOptions options) {
+        return new Carousel(((CarouselOptions) (options)));
     }
 
     @Override
-    public WebBackendLinkOptions createLinkOptions() {
-        return new LinkOptions();
+    public WebBackendCarouselOptions createCarouselOptions() {
+        return new CarouselOptions();
     }
 
     @Override
-    public WebBackendLineBreak createLineBreak(CoreLineBreakOptions options) {
-        return new LineBreak(((LineBreakOptions) (options)));
+    public WebBackendBasicInputField createBasicInputField(CoreBasicInputFieldOptions options) {
+        return new BasicInputField(((BasicInputFieldOptions) (options)));
     }
 
     @Override
-    public WebBackendLineBreakOptions createLineBreakOptions() {
-        return new LineBreakOptions();
+    public WebBackendBasicInputFieldOptions createBasicInputFieldOptions() {
+        return new BasicInputFieldOptions();
     }
 
     @Override
-    public WebBackendTab createTab(CoreTabOptions options) {
-        return new Tab(((TabOptions) (options)));
+    public WebBackendFilePicker createFilePicker(WebFilePickerOptions options) {
+        return new FilePicker(((FilePickerOptions) (options)));
     }
 
     @Override
-    public WebBackendTabOptions createTabOptions() {
-        return new TabOptions();
+    public WebBackendFilePickerOptions createFilePickerOptions() {
+        return new FilePickerOptions();
     }
 
     @Override
-    public WebBackendCheckbox createCheckbox(CoreCheckboxOptions options) {
-        return new Checkbox(((CheckboxOptions) (options)));
+    public WebBackendSvgGroup createSvgGroup(WebSvgGroupOptions options) {
+        return new SvgGroup(((SvgGroupOptions) (options)));
     }
 
     @Override
-    public WebBackendCheckboxOptions createCheckboxOptions() {
-        return new CheckboxOptions();
+    public WebBackendSvgGroupOptions createSvgGroupOptions() {
+        return new SvgGroupOptions();
     }
 
     @Override
-    public WebBackendDrawer createDrawer(CoreDrawerOptions options) {
-        return new Drawer(((DrawerOptions) (options)));
+    public WebBackendMediaPlayer createMediaPlayer(CoreMediaPlayerOptions options) {
+        return new MediaPlayer(((MediaPlayerOptions) (options)));
     }
 
     @Override
-    public WebBackendDrawerOptions createDrawerOptions() {
-        return new DrawerOptions();
+    public WebBackendMediaPlayerOptions createMediaPlayerOptions() {
+        return new MediaPlayerOptions();
     }
 
     @Override
-    public WebBackendSheetLayout createSheetLayout(CoreSheetLayoutOptions options) {
-        return new SheetLayout(((SheetLayoutOptions) (options)));
+    public WebBackendCard createCard(CoreCardOptions options) {
+        return new Card(((CardOptions) (options)));
     }
 
     @Override
-    public WebBackendSheetLayoutOptions createSheetLayoutOptions() {
-        return new SheetLayoutOptions();
+    public WebBackendCardOptions createCardOptions() {
+        return new CardOptions();
     }
 
     @Override
-    public WebBackendSheetRouteLayout createSheetRouteLayout(WebSheetRouteLayoutOptions options) {
-        return new SheetRouteLayout(((SheetRouteLayoutOptions) (options)));
+    public WebBackendIconButton createIconButton(CoreIconButtonOptions options) {
+        return new IconButton(((IconButtonOptions) (options)));
     }
 
     @Override
-    public WebBackendSheetRouteLayoutOptions createSheetRouteLayoutOptions() {
-        return new SheetRouteLayoutOptions();
+    public WebBackendIconButtonOptions createIconButtonOptions() {
+        return new IconButtonOptions();
     }
 
     @Override
-    public WebBackendTableColumn createTableColumn(CoreTableColumnOptions options) {
-        return new TableColumn(((TableColumnOptions) (options)));
+    public WebBackendRowLayout createRowLayout(CoreRowLayoutOptions options) {
+        return new RowLayout(((RowLayoutOptions) (options)));
     }
 
     @Override
-    public WebBackendTableColumnOptions createTableColumnOptions() {
-        return new TableColumnOptions();
+    public WebBackendRowLayoutOptions createRowLayoutOptions() {
+        return new RowLayoutOptions();
     }
 
     @Override
-    public WebBackendMenuButton createMenuButton(CoreMenuButtonOptions options) {
-        return new MenuButton(((MenuButtonOptions) (options)));
+    public WebBackendBasicCheckbox createBasicCheckbox(CoreBasicCheckboxOptions options) {
+        return new BasicCheckbox(((BasicCheckboxOptions) (options)));
     }
 
     @Override
-    public WebBackendMenuButtonOptions createMenuButtonOptions() {
-        return new MenuButtonOptions();
+    public WebBackendBasicCheckboxOptions createBasicCheckboxOptions() {
+        return new BasicCheckboxOptions();
     }
 
     @Override
-    public WebBackendCardGrid createCardGrid(CoreCardGridOptions options) {
-        return new CardGrid(((CardGridOptions) (options)));
+    public WebBackendNavigationTreeLink createNavigationTreeLink(CoreNavigationTreeLinkOptions options) {
+        return new NavigationTreeLink(((NavigationTreeLinkOptions) (options)));
     }
 
     @Override
-    public WebBackendCardGridOptions createCardGridOptions() {
-        return new CardGridOptions();
+    public WebBackendNavigationTreeLinkOptions createNavigationTreeLinkOptions() {
+        return new NavigationTreeLinkOptions();
     }
 
     @Override
-    public WebBackendInlineText createInlineText(CoreInlineTextOptions options) {
-        return new InlineText(((InlineTextOptions) (options)));
+    public WebBackendTableBody createTableBody(CoreTableBodyOptions options) {
+        return new TableBody(((TableBodyOptions) (options)));
     }
 
     @Override
-    public WebBackendInlineTextOptions createInlineTextOptions() {
-        return new InlineTextOptions();
+    public WebBackendTableBodyOptions createTableBodyOptions() {
+        return new TableBodyOptions();
     }
 
     @Override
-    public WebBackendSplitContainer createSplitContainer(CoreSplitContainerOptions options) {
-        return new SplitContainer(((SplitContainerOptions) (options)));
+    public WebBackendTextBlock createTextBlock(CoreTextBlockOptions options) {
+        return new TextBlock(((TextBlockOptions) (options)));
     }
 
     @Override
-    public WebBackendSplitContainerOptions createSplitContainerOptions() {
-        return new SplitContainerOptions();
+    public WebBackendTextBlockOptions createTextBlockOptions() {
+        return new TextBlockOptions();
     }
 
     @Override
-    public WebBackendBasicList createBasicList(CoreBasicListOptions options) {
-        return new BasicList(((BasicListOptions) (options)));
+    public WebBackendTableCell createTableCell(CoreTableCellOptions options) {
+        return new TableCell(((TableCellOptions) (options)));
     }
 
     @Override
-    public WebBackendBasicListOptions createBasicListOptions() {
-        return new BasicListOptions();
+    public WebBackendTableCellOptions createTableCellOptions() {
+        return new TableCellOptions();
     }
 
     @Override
@@ -775,33 +1500,133 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendTextField createTextField(CoreTextFieldOptions options) {
-        return new TextField(((TextFieldOptions) (options)));
+    public WebBackendLineBreak createLineBreak(CoreLineBreakOptions options) {
+        return new LineBreak(((LineBreakOptions) (options)));
     }
 
     @Override
-    public WebBackendTextFieldOptions createTextFieldOptions() {
-        return new TextFieldOptions();
+    public WebBackendLineBreakOptions createLineBreakOptions() {
+        return new LineBreakOptions();
     }
 
     @Override
-    public WebBackendAppLayout createAppLayout(CoreAppLayoutOptions options) {
-        return new AppLayout(((AppLayoutOptions) (options)));
+    public WebBackendSheetRouteLayout createSheetRouteLayout(WebSheetRouteLayoutOptions options) {
+        return new SheetRouteLayout(((SheetRouteLayoutOptions) (options)));
     }
 
     @Override
-    public WebBackendAppLayoutOptions createAppLayoutOptions() {
-        return new AppLayoutOptions();
+    public WebBackendSheetRouteLayoutOptions createSheetRouteLayoutOptions() {
+        return new SheetRouteLayoutOptions();
     }
 
     @Override
-    public WebBackendMenuButtonItem createMenuButtonItem(CoreMenuButtonItemOptions options) {
-        return new MenuButtonItem(((MenuButtonItemOptions) (options)));
+    public WebBackendBaseComponent createBaseComponent(CoreBaseComponentPartOptions options) {
+        return new BaseComponent(((BaseComponentOptions) (options)));
     }
 
     @Override
-    public WebBackendMenuButtonItemOptions createMenuButtonItemOptions() {
-        return new MenuButtonItemOptions();
+    public WebBackendBaseComponentOptions createBaseComponentOptions() {
+        return new BaseComponentOptions();
+    }
+
+    @Override
+    public WebBackendCheckboxTableColumn createCheckboxTableColumn(CoreCheckboxTableColumnOptions options) {
+        return new CheckboxTableColumn(((CheckboxTableColumnOptions) (options)));
+    }
+
+    @Override
+    public WebBackendCheckboxTableColumnOptions createCheckboxTableColumnOptions() {
+        return new CheckboxTableColumnOptions();
+    }
+
+    @Override
+    public WebBackendSegmentedTextField createSegmentedTextField(CoreSegmentedTextFieldOptions options) {
+        return new SegmentedTextField(((SegmentedTextFieldOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSegmentedTextFieldOptions createSegmentedTextFieldOptions() {
+        return new SegmentedTextFieldOptions();
+    }
+
+    @Override
+    public WebBackendTableRow createTableRow(CoreTableRowOptions options) {
+        return new TableRow(((TableRowOptions) (options)));
+    }
+
+    @Override
+    public WebBackendTableRowOptions createTableRowOptions() {
+        return new TableRowOptions();
+    }
+
+    @Override
+    public WebBackendProgressIndicator createProgressIndicator(CoreProgressIndicatorOptions options) {
+        return new ProgressIndicator(((ProgressIndicatorOptions) (options)));
+    }
+
+    @Override
+    public WebBackendProgressIndicatorOptions createProgressIndicatorOptions() {
+        return new ProgressIndicatorOptions();
+    }
+
+    @Override
+    public WebBackendSvgRect createSvgRect(WebSvgRectOptions options) {
+        return new SvgRect(((SvgRectOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSvgRectOptions createSvgRectOptions() {
+        return new SvgRectOptions();
+    }
+
+    @Override
+    public WebBackendDropZone createDropZone(CoreDropZoneOptions options) {
+        return new DropZone(((DropZoneOptions) (options)));
+    }
+
+    @Override
+    public WebBackendDropZoneOptions createDropZoneOptions() {
+        return new DropZoneOptions();
+    }
+
+    @Override
+    public WebBackendImage createImage(CoreImageOptions options) {
+        return new Image(((ImageOptions) (options)));
+    }
+
+    @Override
+    public WebBackendImageOptions createImageOptions() {
+        return new ImageOptions();
+    }
+
+    @Override
+    public WebBackendLink createLink(CoreLinkOptions options) {
+        return new Link(((LinkOptions) (options)));
+    }
+
+    @Override
+    public WebBackendLinkOptions createLinkOptions() {
+        return new LinkOptions();
+    }
+
+    @Override
+    public WebBackendSvgPath createSvgPath(WebSvgPathOptions options) {
+        return new SvgPath(((SvgPathOptions) (options)));
+    }
+
+    @Override
+    public WebBackendSvgPathOptions createSvgPathOptions() {
+        return new SvgPathOptions();
+    }
+
+    @Override
+    public WebBackendFloatingPanel createFloatingPanel(CoreFloatingPanelOptions options) {
+        return new FloatingPanel(((FloatingPanelOptions) (options)));
+    }
+
+    @Override
+    public WebBackendFloatingPanelOptions createFloatingPanelOptions() {
+        return new FloatingPanelOptions();
     }
 
     @Override
@@ -825,66 +1650,6 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendButton createButton(CoreButtonOptions options) {
-        return new Button(((ButtonOptions) (options)));
-    }
-
-    @Override
-    public WebBackendButtonOptions createButtonOptions() {
-        return new ButtonOptions();
-    }
-
-    @Override
-    public WebBackendFlexContainer createFlexContainer(CoreFlexContainerOptions options) {
-        return new FlexContainer(((FlexContainerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendFlexContainerOptions createFlexContainerOptions() {
-        return new FlexContainerOptions();
-    }
-
-    @Override
-    public WebBackendAccordionItem createAccordionItem(CoreAccordionItemOptions options) {
-        return new AccordionItem(((AccordionItemOptions) (options)));
-    }
-
-    @Override
-    public WebBackendAccordionItemOptions createAccordionItemOptions() {
-        return new AccordionItemOptions();
-    }
-
-    @Override
-    public WebBackendParentComponent createParentComponent(CoreParentComponentPartOptions options) {
-        return new ParentComponent(((ParentComponentOptions) (options)));
-    }
-
-    @Override
-    public WebBackendParentComponentOptions createParentComponentOptions() {
-        return new ParentComponentOptions();
-    }
-
-    @Override
-    public WebBackendNavigationTreeGroup createNavigationTreeGroup(CoreNavigationTreeGroupOptions options) {
-        return new NavigationTreeGroup(((NavigationTreeGroupOptions) (options)));
-    }
-
-    @Override
-    public WebBackendNavigationTreeGroupOptions createNavigationTreeGroupOptions() {
-        return new NavigationTreeGroupOptions();
-    }
-
-    @Override
-    public WebBackendSplitContainerPanel createSplitContainerPanel(CoreSplitContainerPanelOptions options) {
-        return new SplitContainerPanel(((SplitContainerPanelOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSplitContainerPanelOptions createSplitContainerPanelOptions() {
-        return new SplitContainerPanelOptions();
-    }
-
-    @Override
     public WebBackendTable createTable(CoreTableOptions options) {
         return new Table(((TableOptions) (options)));
     }
@@ -892,56 +1657,6 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     @Override
     public WebBackendTableOptions createTableOptions() {
         return new TableOptions();
-    }
-
-    @Override
-    public WebBackendTableFooter createTableFooter(CoreTableFooterOptions options) {
-        return new TableFooter(((TableFooterOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTableFooterOptions createTableFooterOptions() {
-        return new TableFooterOptions();
-    }
-
-    @Override
-    public WebBackendTableHeader createTableHeader(CoreTableHeaderOptions options) {
-        return new TableHeader(((TableHeaderOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTableHeaderOptions createTableHeaderOptions() {
-        return new TableHeaderOptions();
-    }
-
-    @Override
-    public WebBackendTableRow createTableRow(CoreTableRowOptions options) {
-        return new TableRow(((TableRowOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTableRowOptions createTableRowOptions() {
-        return new TableRowOptions();
-    }
-
-    @Override
-    public WebBackendScrollableContainerEdge createScrollableContainerEdge(CoreScrollableContainerEdgeOptions options) {
-        return new ScrollableContainerEdge(((ScrollableContainerEdgeOptions) (options)));
-    }
-
-    @Override
-    public WebBackendScrollableContainerEdgeOptions createScrollableContainerEdgeOptions() {
-        return new ScrollableContainerEdgeOptions();
-    }
-
-    @Override
-    public WebBackendAppLayoutBody createAppLayoutBody(CoreAppLayoutBodyOptions options) {
-        return new AppLayoutBody(((AppLayoutBodyOptions) (options)));
-    }
-
-    @Override
-    public WebBackendAppLayoutBodyOptions createAppLayoutBodyOptions() {
-        return new AppLayoutBodyOptions();
     }
 
     @Override
@@ -955,346 +1670,6 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendSearchField createSearchField(CoreSearchFieldOptions options) {
-        return new SearchField(((SearchFieldOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSearchFieldOptions createSearchFieldOptions() {
-        return new SearchFieldOptions();
-    }
-
-    @Override
-    public WebBackendImage createImage(CoreImageOptions options) {
-        return new Image(((ImageOptions) (options)));
-    }
-
-    @Override
-    public WebBackendImageOptions createImageOptions() {
-        return new ImageOptions();
-    }
-
-    @Override
-    public WebBackendTableColumnGroup createTableColumnGroup(CoreTableColumnGroupOptions options) {
-        return new TableColumnGroup(((TableColumnGroupOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTableColumnGroupOptions createTableColumnGroupOptions() {
-        return new TableColumnGroupOptions();
-    }
-
-    @Override
-    public WebBackendDivider createDivider(CoreDividerOptions options) {
-        return new Divider(((DividerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendDividerOptions createDividerOptions() {
-        return new DividerOptions();
-    }
-
-    @Override
-    public WebBackendCheckboxTableCell createCheckboxTableCell(CoreCheckboxTableCellOptions options) {
-        return new CheckboxTableCell(((CheckboxTableCellOptions) (options)));
-    }
-
-    @Override
-    public WebBackendCheckboxTableCellOptions createCheckboxTableCellOptions() {
-        return new CheckboxTableCellOptions();
-    }
-
-    @Override
-    public WebBackendIconButton createIconButton(CoreIconButtonOptions options) {
-        return new IconButton(((IconButtonOptions) (options)));
-    }
-
-    @Override
-    public WebBackendIconButtonOptions createIconButtonOptions() {
-        return new IconButtonOptions();
-    }
-
-    @Override
-    public WebBackendSelectMenu createSelectMenu(CoreSelectMenuOptions options) {
-        return new SelectMenu(((SelectMenuOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSelectMenuOptions createSelectMenuOptions() {
-        return new SelectMenuOptions();
-    }
-
-    @Override
-    public WebBackendConsentBanner createConsentBanner(CoreConsentBannerOptions options) {
-        return new ConsentBanner(((ConsentBannerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendConsentBannerOptions createConsentBannerOptions() {
-        return new ConsentBannerOptions();
-    }
-
-    @Override
-    public WebBackendCheckboxTableColumn createCheckboxTableColumn(CoreCheckboxTableColumnOptions options) {
-        return new CheckboxTableColumn(((CheckboxTableColumnOptions) (options)));
-    }
-
-    @Override
-    public WebBackendCheckboxTableColumnOptions createCheckboxTableColumnOptions() {
-        return new CheckboxTableColumnOptions();
-    }
-
-    @Override
-    public WebBackendMenu createMenu(CoreMenuOptions options) {
-        return new Menu(((MenuOptions) (options)));
-    }
-
-    @Override
-    public WebBackendMenuOptions createMenuOptions() {
-        return new MenuOptions();
-    }
-
-    @Override
-    public WebBackendSvg createSvg(WebSvgOptions options) {
-        return new Svg(((SvgOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSvgOptions createSvgOptions() {
-        return new SvgOptions();
-    }
-
-    @Override
-    public WebBackendDocument createDocument(WebDocumentOptions options) {
-        return new Document(((DocumentOptions) (options)));
-    }
-
-    @Override
-    public WebBackendDocumentOptions createDocumentOptions() {
-        return new DocumentOptions();
-    }
-
-    @Override
-    public WebBackendRotatingText createRotatingText(CoreRotatingTextOptions options) {
-        return new RotatingText(((RotatingTextOptions) (options)));
-    }
-
-    @Override
-    public WebBackendRotatingTextOptions createRotatingTextOptions() {
-        return new RotatingTextOptions();
-    }
-
-    @Override
-    public WebBackendSplitContainerDivider createSplitContainerDivider(CoreSplitContainerDividerOptions options) {
-        return new SplitContainerDivider(((SplitContainerDividerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSplitContainerDividerOptions createSplitContainerDividerOptions() {
-        return new SplitContainerDividerOptions();
-    }
-
-    @Override
-    public WebBackendCurrencySelector createCurrencySelector(CoreCurrencySelectorOptions options) {
-        return new CurrencySelector(((CurrencySelectorOptions) (options)));
-    }
-
-    @Override
-    public WebBackendCurrencySelectorOptions createCurrencySelectorOptions() {
-        return new CurrencySelectorOptions();
-    }
-
-    @Override
-    public WebBackendTopAppBar createTopAppBar(CoreTopAppBarOptions options) {
-        return new TopAppBar(((TopAppBarOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTopAppBarOptions createTopAppBarOptions() {
-        return new TopAppBarOptions();
-    }
-
-    @Override
-    public WebBackendFloatingActionButton createFloatingActionButton(CoreFloatingActionButtonOptions options) {
-        return new FloatingActionButton(((FloatingActionButtonOptions) (options)));
-    }
-
-    @Override
-    public WebBackendFloatingActionButtonOptions createFloatingActionButtonOptions() {
-        return new FloatingActionButtonOptions();
-    }
-
-    @Override
-    public WebBackendSkeleton createSkeleton(CoreSkeletonOptions options) {
-        return new Skeleton(((SkeletonOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSkeletonOptions createSkeletonOptions() {
-        return new SkeletonOptions();
-    }
-
-    @Override
-    public WebBackendFieldSet createFieldSet(CoreFieldSetOptions options) {
-        return new FieldSet(((FieldSetOptions) (options)));
-    }
-
-    @Override
-    public WebBackendFieldSetOptions createFieldSetOptions() {
-        return new FieldSetOptions();
-    }
-
-    @Override
-    public WebBackendRouteLayout createRouteLayout(WebRouteLayoutOptions options) {
-        return new RouteLayout(((RouteLayoutOptions) (options)));
-    }
-
-    @Override
-    public WebBackendRouteLayoutOptions createRouteLayoutOptions() {
-        return new RouteLayoutOptions();
-    }
-
-    @Override
-    public WebBackendSvgPath createSvgPath(WebSvgPathOptions options) {
-        return new SvgPath(((SvgPathOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSvgPathOptions createSvgPathOptions() {
-        return new SvgPathOptions();
-    }
-
-    @Override
-    public WebBackendView createView(CoreViewOptions options) {
-        return new View(((ViewOptions) (options)));
-    }
-
-    @Override
-    public WebBackendViewOptions createViewOptions() {
-        return new ViewOptions();
-    }
-
-    @Override
-    public WebBackendCard createCard(CoreCardOptions options) {
-        return new Card(((CardOptions) (options)));
-    }
-
-    @Override
-    public WebBackendCardOptions createCardOptions() {
-        return new CardOptions();
-    }
-
-    @Override
-    public WebBackendFilePicker createFilePicker(WebFilePickerOptions options) {
-        return new FilePicker(((FilePickerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendFilePickerOptions createFilePickerOptions() {
-        return new FilePickerOptions();
-    }
-
-    @Override
-    public WebBackendChip createChip(CoreChipOptions options) {
-        return new Chip(((ChipOptions) (options)));
-    }
-
-    @Override
-    public WebBackendChipOptions createChipOptions() {
-        return new ChipOptions();
-    }
-
-    @Override
-    public WebBackendProgressIndicator createProgressIndicator(CoreProgressIndicatorOptions options) {
-        return new ProgressIndicator(((ProgressIndicatorOptions) (options)));
-    }
-
-    @Override
-    public WebBackendProgressIndicatorOptions createProgressIndicatorOptions() {
-        return new ProgressIndicatorOptions();
-    }
-
-    @Override
-    public WebBackendSegmentedTextField createSegmentedTextField(CoreSegmentedTextFieldOptions options) {
-        return new SegmentedTextField(((SegmentedTextFieldOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSegmentedTextFieldOptions createSegmentedTextFieldOptions() {
-        return new SegmentedTextFieldOptions();
-    }
-
-    @Override
-    public WebBackendRowLayout createRowLayout(CoreRowLayoutOptions options) {
-        return new RowLayout(((RowLayoutOptions) (options)));
-    }
-
-    @Override
-    public WebBackendRowLayoutOptions createRowLayoutOptions() {
-        return new RowLayoutOptions();
-    }
-
-    @Override
-    public WebBackendBanner createBanner(CoreBannerOptions options) {
-        return new Banner(((BannerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendBannerOptions createBannerOptions() {
-        return new BannerOptions();
-    }
-
-    @Override
-    public WebBackendScrollableContainerScrollArea createScrollableContainerScrollArea(CoreScrollableContainerScrollAreaOptions options) {
-        return new ScrollableContainerScrollArea(((ScrollableContainerScrollAreaOptions) (options)));
-    }
-
-    @Override
-    public WebBackendScrollableContainerScrollAreaOptions createScrollableContainerScrollAreaOptions() {
-        return new ScrollableContainerScrollAreaOptions();
-    }
-
-    @Override
-    public WebBackendRegionSelector createRegionSelector(CoreRegionSelectorOptions options) {
-        return new RegionSelector(((RegionSelectorOptions) (options)));
-    }
-
-    @Override
-    public WebBackendRegionSelectorOptions createRegionSelectorOptions() {
-        return new RegionSelectorOptions();
-    }
-
-    @Override
-    public WebBackendSvgGroup createSvgGroup(WebSvgGroupOptions options) {
-        return new SvgGroup(((SvgGroupOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSvgGroupOptions createSvgGroupOptions() {
-        return new SvgGroupOptions();
-    }
-
-    @Override
-    public WebBackendSvgRect createSvgRect(WebSvgRectOptions options) {
-        return new SvgRect(((SvgRectOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSvgRectOptions createSvgRectOptions() {
-        return new SvgRectOptions();
-    }
-
-    @Override
-    public WebBackendMenuDivider createMenuDivider(CoreMenuDividerOptions options) {
-        return new MenuDivider(((MenuDividerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendMenuDividerOptions createMenuDividerOptions() {
-        return new MenuDividerOptions();
-    }
-
-    @Override
     public WebBackendBottomAppBar createBottomAppBar(CoreBottomAppBarOptions options) {
         return new BottomAppBar(((BottomAppBarOptions) (options)));
     }
@@ -1305,223 +1680,13 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendTableCell createTableCell(CoreTableCellOptions options) {
-        return new TableCell(((TableCellOptions) (options)));
+    public WebBackendFlexContainer createFlexContainer(CoreFlexContainerOptions options) {
+        return new FlexContainer(((FlexContainerOptions) (options)));
     }
 
     @Override
-    public WebBackendTableCellOptions createTableCellOptions() {
-        return new TableCellOptions();
-    }
-
-    @Override
-    public WebBackendMultiEmailAddressField createMultiEmailAddressField(CoreMultiEmailAddressFieldOptions options) {
-        return new MultiEmailAddressField(((MultiEmailAddressFieldOptions) (options)));
-    }
-
-    @Override
-    public WebBackendMultiEmailAddressFieldOptions createMultiEmailAddressFieldOptions() {
-        return new MultiEmailAddressFieldOptions();
-    }
-
-    @Override
-    public WebBackendTextTrack createTextTrack(CoreTextTrackOptions options) {
-        return new TextTrack(((TextTrackOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTextTrackOptions createTextTrackOptions() {
-        return new TextTrackOptions();
-    }
-
-    @Override
-    public WebBackendBadge createBadge(CoreBadgeOptions options) {
-        return new Badge(((BadgeOptions) (options)));
-    }
-
-    @Override
-    public WebBackendBadgeOptions createBadgeOptions() {
-        return new BadgeOptions();
-    }
-
-    @Override
-    public WebBackendPasswordField createPasswordField(CorePasswordFieldOptions options) {
-        return new PasswordField(((PasswordFieldOptions) (options)));
-    }
-
-    @Override
-    public WebBackendPasswordFieldOptions createPasswordFieldOptions() {
-        return new PasswordFieldOptions();
-    }
-
-    @Override
-    public WebBackendSurface createSurface(CoreSurfaceOptions options) {
-        return new Surface(((SurfaceOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSurfaceOptions createSurfaceOptions() {
-        return new SurfaceOptions();
-    }
-
-    @Override
-    public WebBackendSvgImage createSvgImage(WebSvgImageOptions options) {
-        return new SvgImage(((SvgImageOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSvgImageOptions createSvgImageOptions() {
-        return new SvgImageOptions();
-    }
-
-    @Override
-    public WebBackendLabel createLabel(CoreLabelOptions options) {
-        return new Label(((LabelOptions) (options)));
-    }
-
-    @Override
-    public WebBackendLabelOptions createLabelOptions() {
-        return new LabelOptions();
-    }
-
-    @Override
-    public WebBackendMediaPlayer createMediaPlayer(CoreMediaPlayerOptions options) {
-        return new MediaPlayer(((MediaPlayerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendMediaPlayerOptions createMediaPlayerOptions() {
-        return new MediaPlayerOptions();
-    }
-
-    @Override
-    public WebBackendSlideContainerEdge createSlideContainerEdge(CoreSlideContainerEdgeOptions options) {
-        return new SlideContainerEdge(((SlideContainerEdgeOptions) (options)));
-    }
-
-    @Override
-    public WebBackendSlideContainerEdgeOptions createSlideContainerEdgeOptions() {
-        return new SlideContainerEdgeOptions();
-    }
-
-    @Override
-    public WebBackendColumnLayout createColumnLayout(CoreColumnLayoutOptions options) {
-        return new ColumnLayout(((ColumnLayoutOptions) (options)));
-    }
-
-    @Override
-    public WebBackendColumnLayoutOptions createColumnLayoutOptions() {
-        return new ColumnLayoutOptions();
-    }
-
-    @Override
-    public WebBackendDropZone createDropZone(CoreDropZoneOptions options) {
-        return new DropZone(((DropZoneOptions) (options)));
-    }
-
-    @Override
-    public WebBackendDropZoneOptions createDropZoneOptions() {
-        return new DropZoneOptions();
-    }
-
-    @Override
-    public WebBackendTabBar createTabBar(CoreTabBarOptions options) {
-        return new TabBar(((TabBarOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTabBarOptions createTabBarOptions() {
-        return new TabBarOptions();
-    }
-
-    @Override
-    public WebBackendListItem createListItem(CoreListItemOptions options) {
-        return new ListItem(((ListItemOptions) (options)));
-    }
-
-    @Override
-    public WebBackendListItemOptions createListItemOptions() {
-        return new ListItemOptions();
-    }
-
-    @Override
-    public WebBackendAudioPlayer createAudioPlayer(CoreAudioPlayerOptions options) {
-        return new AudioPlayer(((AudioPlayerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendAudioPlayerOptions createAudioPlayerOptions() {
-        return new AudioPlayerOptions();
-    }
-
-    @Override
-    public WebBackendAvatar createAvatar(CoreAvatarOptions options) {
-        return new Avatar(((AvatarOptions) (options)));
-    }
-
-    @Override
-    public WebBackendAvatarOptions createAvatarOptions() {
-        return new AvatarOptions();
-    }
-
-    @Override
-    public WebBackendText createText(CoreTextOptions options) {
-        return new Text(((TextOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTextOptions createTextOptions() {
-        return new TextOptions();
-    }
-
-    @Override
-    public WebBackendMenuItem createMenuItem(CoreMenuItemOptions options) {
-        return new MenuItem(((MenuItemOptions) (options)));
-    }
-
-    @Override
-    public WebBackendMenuItemOptions createMenuItemOptions() {
-        return new MenuItemOptions();
-    }
-
-    @Override
-    public WebBackendDocumentBody createDocumentBody(WebDocumentBodyOptions options) {
-        return new DocumentBody(((DocumentBodyOptions) (options)));
-    }
-
-    @Override
-    public WebBackendDocumentBodyOptions createDocumentBodyOptions() {
-        return new DocumentBodyOptions();
-    }
-
-    @Override
-    public WebBackendBasicInputField createBasicInputField(CoreBasicInputFieldOptions options) {
-        return new BasicInputField(((BasicInputFieldOptions) (options)));
-    }
-
-    @Override
-    public WebBackendBasicInputFieldOptions createBasicInputFieldOptions() {
-        return new BasicInputFieldOptions();
-    }
-
-    @Override
-    public WebBackendBaseComponent createBaseComponent(CoreBaseComponentPartOptions options) {
-        return new BaseComponent(((BaseComponentOptions) (options)));
-    }
-
-    @Override
-    public WebBackendBaseComponentOptions createBaseComponentOptions() {
-        return new BaseComponentOptions();
-    }
-
-    @Override
-    public WebBackendNavigationTreeLink createNavigationTreeLink(CoreNavigationTreeLinkOptions options) {
-        return new NavigationTreeLink(((NavigationTreeLinkOptions) (options)));
-    }
-
-    @Override
-    public WebBackendNavigationTreeLinkOptions createNavigationTreeLinkOptions() {
-        return new NavigationTreeLinkOptions();
+    public WebBackendFlexContainerOptions createFlexContainerOptions() {
+        return new FlexContainerOptions();
     }
 
     @Override
@@ -1535,33 +1700,43 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendSvgShape createSvgShape(WebSvgShapeOptions options) {
-        return new SvgShape(((SvgShapeOptions) (options)));
+    public WebBackendScrollableContainerScrollArea createScrollableContainerScrollArea(CoreScrollableContainerScrollAreaOptions options) {
+        return new ScrollableContainerScrollArea(((ScrollableContainerScrollAreaOptions) (options)));
     }
 
     @Override
-    public WebBackendSvgShapeOptions createSvgShapeOptions() {
-        return new SvgShapeOptions();
+    public WebBackendScrollableContainerScrollAreaOptions createScrollableContainerScrollAreaOptions() {
+        return new ScrollableContainerScrollAreaOptions();
     }
 
     @Override
-    public WebBackendSheetView createSheetView(CoreSheetViewOptions options) {
-        return new SheetView(((SheetViewOptions) (options)));
+    public WebBackendFieldSet createFieldSet(CoreFieldSetOptions options) {
+        return new FieldSet(((FieldSetOptions) (options)));
     }
 
     @Override
-    public WebBackendSheetViewOptions createSheetViewOptions() {
-        return new SheetViewOptions();
+    public WebBackendFieldSetOptions createFieldSetOptions() {
+        return new FieldSetOptions();
     }
 
     @Override
-    public WebBackendAccordion createAccordion(CoreAccordionOptions options) {
-        return new Accordion(((AccordionOptions) (options)));
+    public WebBackendRotatingText createRotatingText(CoreRotatingTextOptions options) {
+        return new RotatingText(((RotatingTextOptions) (options)));
     }
 
     @Override
-    public WebBackendAccordionOptions createAccordionOptions() {
-        return new AccordionOptions();
+    public WebBackendRotatingTextOptions createRotatingTextOptions() {
+        return new RotatingTextOptions();
+    }
+
+    @Override
+    public WebBackendDrawer createDrawer(CoreDrawerOptions options) {
+        return new Drawer(((DrawerOptions) (options)));
+    }
+
+    @Override
+    public WebBackendDrawerOptions createDrawerOptions() {
+        return new DrawerOptions();
     }
 
     @Override
@@ -1575,153 +1750,23 @@ public class DefaultComponentFactory implements WebBackendComponentFactory {
     }
 
     @Override
-    public WebBackendChatBox createChatBox(CoreChatBoxOptions options) {
-        return new ChatBox(((ChatBoxOptions) (options)));
+    public WebBackendLabel createLabel(CoreLabelOptions options) {
+        return new Label(((LabelOptions) (options)));
     }
 
     @Override
-    public WebBackendChatBoxOptions createChatBoxOptions() {
-        return new ChatBoxOptions();
+    public WebBackendLabelOptions createLabelOptions() {
+        return new LabelOptions();
     }
 
     @Override
-    public WebBackendVideoPlayer createVideoPlayer(CoreVideoPlayerOptions options) {
-        return new VideoPlayer(((VideoPlayerOptions) (options)));
+    public WebBackendSurface createSurface(CoreSurfaceOptions options) {
+        return new Surface(((SurfaceOptions) (options)));
     }
 
     @Override
-    public WebBackendVideoPlayerOptions createVideoPlayerOptions() {
-        return new VideoPlayerOptions();
-    }
-
-    @Override
-    public WebBackendListView createListView(CoreListViewOptions options) {
-        return new ListView(((ListViewOptions) (options)));
-    }
-
-    @Override
-    public WebBackendListViewOptions createListViewOptions() {
-        return new ListViewOptions();
-    }
-
-    @Override
-    public WebBackendFilterChip createFilterChip(CoreFilterChipOptions options) {
-        return new FilterChip(((FilterChipOptions) (options)));
-    }
-
-    @Override
-    public WebBackendFilterChipOptions createFilterChipOptions() {
-        return new FilterChipOptions();
-    }
-
-    @Override
-    public WebBackendBasicCheckbox createBasicCheckbox(CoreBasicCheckboxOptions options) {
-        return new BasicCheckbox(((BasicCheckboxOptions) (options)));
-    }
-
-    @Override
-    public WebBackendBasicCheckboxOptions createBasicCheckboxOptions() {
-        return new BasicCheckboxOptions();
-    }
-
-    @Override
-    public WebBackendTableBody createTableBody(CoreTableBodyOptions options) {
-        return new TableBody(((TableBodyOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTableBodyOptions createTableBodyOptions() {
-        return new TableBodyOptions();
-    }
-
-    @Override
-    public WebBackendScriptComponent createScriptComponent(WebScriptComponentOptions options) {
-        return new ScriptComponent(((ScriptComponentOptions) (options)));
-    }
-
-    @Override
-    public WebBackendScriptComponentOptions createScriptComponentOptions() {
-        return new ScriptComponentOptions();
-    }
-
-    @Override
-    public WebBackendFloatingPanel createFloatingPanel(CoreFloatingPanelOptions options) {
-        return new FloatingPanel(((FloatingPanelOptions) (options)));
-    }
-
-    @Override
-    public WebBackendFloatingPanelOptions createFloatingPanelOptions() {
-        return new FloatingPanelOptions();
-    }
-
-    @Override
-    public WebBackendDialog createDialog(CoreDialogOptions options) {
-        return new Dialog(((DialogOptions) (options)));
-    }
-
-    @Override
-    public WebBackendDialogOptions createDialogOptions() {
-        return new DialogOptions();
-    }
-
-    @Override
-    public WebBackendIconLabel createIconLabel(CoreIconLabelOptions options) {
-        return new IconLabel(((IconLabelOptions) (options)));
-    }
-
-    @Override
-    public WebBackendIconLabelOptions createIconLabelOptions() {
-        return new IconLabelOptions();
-    }
-
-    @Override
-    public WebBackendTextBlock createTextBlock(CoreTextBlockOptions options) {
-        return new TextBlock(((TextBlockOptions) (options)));
-    }
-
-    @Override
-    public WebBackendTextBlockOptions createTextBlockOptions() {
-        return new TextBlockOptions();
-    }
-
-    @Override
-    public WebBackendParagraph createParagraph(CoreParagraphOptions options) {
-        return new Paragraph(((ParagraphOptions) (options)));
-    }
-
-    @Override
-    public WebBackendParagraphOptions createParagraphOptions() {
-        return new ParagraphOptions();
-    }
-
-    @Override
-    public WebBackendScrollableContainer createScrollableContainer(CoreScrollableContainerOptions options) {
-        return new ScrollableContainer(((ScrollableContainerOptions) (options)));
-    }
-
-    @Override
-    public WebBackendScrollableContainerOptions createScrollableContainerOptions() {
-        return new ScrollableContainerOptions();
-    }
-
-    @Override
-    public WebBackendHeading createHeading(CoreHeadingOptions options) {
-        return new Heading(((HeadingOptions) (options)));
-    }
-
-    @Override
-    public WebBackendHeadingOptions createHeadingOptions() {
-        return new HeadingOptions();
-    }
-
-    @Override
-    public WebBackendNavigationLink createNavigationLink(CoreNavigationLinkOptions options) {
-        return new NavigationLink(((NavigationLinkOptions) (options)));
-    }
-
-    @Override
-    public WebBackendNavigationLinkOptions createNavigationLinkOptions() {
-        return new NavigationLinkOptions();
+    public WebBackendSurfaceOptions createSurfaceOptions() {
+        return new SurfaceOptions();
     }
 
     public void setRootComponent(RootComponent rootComponent) {
